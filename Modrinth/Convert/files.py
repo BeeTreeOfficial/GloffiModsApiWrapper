@@ -16,8 +16,10 @@ def do(modrinth_data):
             converted_mod["name"] = mod["name"]
         if "downloads" in mod:
             converted_mod["downloads"] = mod["downloads"]
-        if "files" in mod and "url" in mod["files"]:
-            converted_mod["url"] = mod["files"]["url"]
+        try:
+            converted_mod["url"] = mod["files"][0]["url"]
+        except:
+            pass
         if "game_versions" in mod:
             converted_mod["versions"] = mod["game_versions"]
         if "dependencies" in mod:
