@@ -8,14 +8,16 @@ def do(modrinth_data):
         "url" : "0",
         "versions" : "0",
         "dependencies" : "0",
+        "loaders" : []
     }
     for mod in modrinth_data:
-        print(mod["name"])
         converted_mod = {}
         if "name" in mod:
             converted_mod["name"] = mod["name"]
         if "downloads" in mod:
             converted_mod["downloads"] = mod["downloads"]
+        if "loaders" in mod:
+            converted_mod["loaders"] = mod["loaders"]
         try:
             converted_mod["url"] = mod["files"][0]["url"]
         except:
@@ -27,3 +29,16 @@ def do(modrinth_data):
         Result.append(converted_mod)
     return Result
         
+def filter_mods_by_loader(mods_data, modloader):
+  filtered_mods = []
+  for mod in mods_data:
+    if modloader in mod.get("loaders", []):
+      filtered_mods.append(mod)
+  return filtered_mods
+
+def filter_mods_by_version(mods_data, version: str):
+  filtered_mods = []
+  for mod in mods_data:
+    if version in mod.get("versions", []):
+       filtered_mods.append(mod)
+  return filtered_mods

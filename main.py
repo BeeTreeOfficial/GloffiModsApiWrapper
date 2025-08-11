@@ -11,11 +11,19 @@ errorJson = {
 
 @app.route('/mods/search', methods=['GET'])
 def search_mods_responce():
-    return search_mods(request.args)
+    try:
+        print(f"Searching with mods with arguments: \n{request.args}")
+        return search_mods(request.args)
+    except:
+        return errorJson
 
 @app.route('/mods/<id>') 
 def ModInfo(id):
-    return get_mod(request.args, id)
+    try:
+        print(f"Getting mod with this id: {id}")
+        return get_mod(request.args, id)
+    except:
+        return errorJson
 
 if __name__ == '__main__':
     app.run(debug=True)
