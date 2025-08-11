@@ -18,5 +18,7 @@ def do(arguments):
     params["facets"] = facets
     print(facets)
     response = requests.get(f"{MODRINTH_API_URL}/search", params=params)
+    if response.status_code == 404:
+        return {}
     response = response.json()
     return Modrinth.Convert.mods.mods(response)
