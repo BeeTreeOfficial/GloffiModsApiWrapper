@@ -1,7 +1,14 @@
 def Do(Input):
     Result = []
+    modTemplate = {
+        "name" : "0",
+        "downloads" : "0",
+        "url" : "0",
+        "versions" : "0",
+        "dependencies" : "0",
+    }
     for mod in Input["data"]:
-        converted_mod = {}
+        converted_mod = modTemplate.copy()
         converted_mod["name"] = mod["displayName"]
         converted_mod["downloads"] = mod["downloadCount"]
         converted_mod["url"] = mod["downloadUrl"]
@@ -20,6 +27,6 @@ def remove_non_required_dependencies(ListOfDependencies):
     for Index in range(dependencies_amount):
         dependency = ListOfDependencies[Index]
         if str(dependency["relationType"]) == "3":   
-            cleared_dependencies.append(dependency)
+            cleared_dependencies.append(dependency["modId"])
     
     return cleared_dependencies

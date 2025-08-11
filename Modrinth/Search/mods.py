@@ -1,6 +1,8 @@
 import requests
 
 import Modrinth.Convert.mods
+from Modrinth.constants import *
+
 
 def do(arguments):
     params = {"limit" : "100"}
