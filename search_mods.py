@@ -2,6 +2,7 @@ from flask import request
 
 import Modrinth.Search.mods
 import CurseForge.Search.mods
+import constants
 
 def search_mods(args):
     print(args)
@@ -18,7 +19,7 @@ def search_mods(args):
     except:
         print("Error while retrieving Modrinth mods")
     jsonResponce["data"].sort(key=lambda mod: mod["downloads"], reverse=True)
-    jsonResponce["data"] = [mod for mod in jsonResponce["data"] if mod['downloads'] >= 1000]
+    jsonResponce["data"] = [mod for mod in jsonResponce["data"] if mod['downloads'] >= constants.DOWNLOADS_TRESHOLD]
     try:
         jsonResponce["data"] = jsonResponce["data"][:int(args["limit"])]
     except:
