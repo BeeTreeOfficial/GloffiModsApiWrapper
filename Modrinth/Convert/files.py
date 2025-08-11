@@ -10,7 +10,6 @@ def do(modrinth_data):
         "dependencies" : "0",
     }
     for mod in modrinth_data:
-        print(mod["name"])
         converted_mod = {}
         if "name" in mod:
             converted_mod["name"] = mod["name"]
@@ -20,6 +19,7 @@ def do(modrinth_data):
             converted_mod["url"] = mod["files"]["url"]
         if "game_versions" in mod:
             converted_mod["versions"] = mod["game_versions"]
+            print(mod["game_versions"])
         if "dependencies" in mod:
             converted_mod["dependencies"] = [mod["project_id"] for mod in mod["dependencies"]  if mod.get("dependency_type") == "required"]
         Result.append(converted_mod)

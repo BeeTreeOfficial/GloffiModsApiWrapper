@@ -1,4 +1,4 @@
-def Do(Input):
+def convert_mods(Input):
     Result = []
     modTemplate = {
         "name" : "0",

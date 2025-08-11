@@ -1,9 +1,7 @@
 from flask import Flask, request
 from search_mods import search_mods
 from get_mod import get_mod
-
 app = Flask(__name__)
-
 errorJson = {
         "data" : [],
         "length" : "0"

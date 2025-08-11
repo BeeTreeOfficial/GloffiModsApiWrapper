@@ -11,7 +11,7 @@ def search_mods(args):
         "length" : "0"
     }
     try:
-        jsonResponce["data"].extend(CurseForge.Search.mods.do(arguments))
+        jsonResponce["data"].extend(CurseForge.Search.mods.search_mods(arguments))
     except:
         pass
     try:

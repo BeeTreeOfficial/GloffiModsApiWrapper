@@ -1,5 +1,5 @@
-def Do(Initial):
-    mods = Initial["data"]
+def convert_files(Input):
+    mods = Input["data"]
     Result = []
     for mod in mods:
         ResultingMod = {

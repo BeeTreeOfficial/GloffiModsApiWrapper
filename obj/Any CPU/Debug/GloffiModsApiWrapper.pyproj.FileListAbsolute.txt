@@ -1,0 +1,3 @@
+C:\Users\Леис\Desktop\GloffiModsApiWrapper\obj\Any CPU\Debug\GloffiModsApiWrapper.pyproj.CoreCompileInputs.cache
+C:\Users\Леис\Desktop\GloffiModsApiWrapper\bin\Microsoft.PythonTools.WebRole.dll
+C:\Users\Леис\Desktop\GloffiModsApiWrapper\bin\wfastcgi.py

@@ -2,7 +2,7 @@ import requests
 import CurseForge.Convert.files
 from CurseForge.constants import *
 
-def do(arguments, id):
+def search_files(arguments, id):
     params = {}
     if "version" in arguments:
         params["gameVersion"] = arguments["version"]
@@ -10,7 +10,7 @@ def do(arguments, id):
         params["modLoaderType"] = platform[arguments["mod_loader"]]
     print(params)
     response = requests.get(f"{CURSEFORGE_API_URL}/mods/" + id + "/files", params=params, headers={"x-api-key": CURSEFORGE_API_KEY})
-    responseJson = CurseForge.Convert.files.Do(response.json()) 
+    responseJson = CurseForge.Convert.files.convert_mods(response.json()) 
     return responseJson
 
 

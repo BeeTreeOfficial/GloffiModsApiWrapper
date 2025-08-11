@@ -3,7 +3,7 @@ import requests
 import CurseForge.Convert.mods
 from CurseForge.constants import *
 
-def do(arguments):
+def search_mods(arguments):
     params = {}
     params["gameId"] = "432"
     params["pageSize"] = "50"
@@ -22,4 +22,4 @@ def do(arguments):
     print(params)
     response = requests.get(f"{CURSEFORGE_API_URL}/mods/search", params=params, headers={"x-api-key": CURSEFORGE_API_KEY})
     responseJson = response.json()
-    return CurseForge.Convert.mods.Do(responseJson)
+    return CurseForge.Convert.mods.convert_files(responseJson)
